@@ -1,770 +1,527 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>docco | Clinical intelligence that feels effortless</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Zen+Dots&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        color-scheme: dark;
-        --ink: #0f172a;
-        --ink-2: #111827;
-        --slate: #1e293b;
-        --slate-2: #334155;
-        --fog: #e2e8f0;
-        --mist: #cbd5e1;
-        --steel: #94a3b8;
-        --sky: #38bdf8;
-        --pink: #f472b6;
-        --glow: rgba(56, 189, 248, 0.35);
-        --glow-2: rgba(244, 114, 182, 0.35);
-        --panel: rgba(15, 23, 42, 0.78);
-        --panel-strong: rgba(15, 23, 42, 0.94);
-        --border: rgba(148, 163, 184, 0.25);
-        --radius: 24px;
-        --shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>docco | Patient records recall for images and video</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Zen+Dots&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #0f172a;
+      --ink-2: #111827;
+      --slate: #1e293b;
+      --slate-2: #334155;
+      --fog: #e2e8f0;
+      --mist: #cbd5e1;
+      --steel: #94a3b8;
+      --sky: #38bdf8;
+      --pink: #f472b6;
+      --glow: rgba(56, 189, 248, 0.35);
+      --glow-2: rgba(244, 114, 182, 0.35);
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-strong: rgba(15, 23, 42, 0.94);
+      --border: rgba(148, 163, 184, 0.25);
+      --radius: 24px;
+      --shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        'Lato',
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 50%),
+        radial-gradient(circle at 85% 0%, rgba(244, 114, 182, 0.18), transparent 45%),
+        radial-gradient(circle at 75% 70%, rgba(56, 189, 248, 0.12), transparent 55%),
+        #0b1120;
+      color: var(--fog);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.16;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(0);
+      background: radial-gradient(circle, var(--glow), transparent 70%);
+      opacity: 0.6;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .orb.pink {
+      background: radial-gradient(circle, var(--glow-2), transparent 70%);
+      animation-delay: -3s;
+    }
+
+    .orb.one {
+      top: -160px;
+      left: -80px;
+    }
+
+    .orb.two {
+      right: -140px;
+      top: 120px;
+    }
+
+    .orb.three {
+      bottom: -160px;
+      left: 30%;
+    }
+
+    header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 6vw;
+    }
+
+    .logo {
+      font-family:
+        'Zen Dots',
+        'Lato',
+        sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: lowercase;
+      color: #f8fafc;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-weight: 500;
+      color: var(--mist);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, rgba(56, 189, 248, 0.9), rgba(244, 114, 182, 0.85));
+      color: #08101f;
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn.ghost {
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.5);
+      color: var(--fog);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+      padding: 40px 6vw 120px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--fog);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      margin: 24px 0 16px;
+      line-height: 1.05;
+      color: #f8fafc;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--mist);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card header {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(244, 114, 182, 0.12);
+      color: #f8fafc;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .summary {
+      display: grid;
+      gap: 16px;
+    }
+
+    .summary-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .summary-card h3 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      color: #f8fafc;
+    }
+
+    .summary-card p {
+      margin: 0;
+      color: var(--mist);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      margin: 0 0 12px;
+      color: #f8fafc;
+    }
+
+    .section-lede {
+      margin: 0 auto 32px;
+      max-width: 720px;
+      color: var(--mist);
+      line-height: 1.6;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .feature {
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+    }
+
+    .feature h3 {
+      margin: 16px 0 8px;
+      color: #f8fafc;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--mist);
+      line-height: 1.6;
+    }
+
+    .feature svg {
+      width: 36px;
+      height: 36px;
+      color: var(--sky);
+    }
+
+    .cta {
+      text-align: center;
+      padding: 64px 24px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(244, 114, 182, 0.2));
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 26px 80px rgba(15, 23, 42, 0.35);
+    }
+
+    footer {
+      padding: 40px 6vw 80px;
+      color: var(--steel);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: reveal 0.8s ease forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) translateX(0);
       }
 
-      * {
-        box-sizing: border-box;
+      50% {
+        transform: translateY(18px) translateX(12px);
       }
+    }
 
-      body {
-        margin: 0;
-        font-family:
-          'Lato',
-          -apple-system,
-          BlinkMacSystemFont,
-          'Segoe UI',
-          'Roboto',
-          'Oxygen',
-          'Ubuntu',
-          'Cantarell',
-          'Fira Sans',
-          'Droid Sans',
-          'Helvetica Neue',
-          sans-serif;
-        background:
-          radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 50%),
-          radial-gradient(circle at 85% 0%, rgba(244, 114, 182, 0.18), transparent 45%),
-          radial-gradient(circle at 75% 70%, rgba(56, 189, 248, 0.12), transparent 55%),
-          #0b1120;
-        color: var(--fog);
-        min-height: 100vh;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .page {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .page::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
-        background-size: 48px 48px;
-        opacity: 0.16;
-        pointer-events: none;
-      }
-
-      .orb {
-        position: absolute;
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        filter: blur(0);
-        background: radial-gradient(circle, var(--glow), transparent 70%);
-        opacity: 0.6;
-        animation: float 10s ease-in-out infinite;
-      }
-
-      .orb.pink {
-        background: radial-gradient(circle, var(--glow-2), transparent 70%);
-        animation-delay: -3s;
-      }
-
-      .orb.one {
-        top: -160px;
-        left: -80px;
-      }
-
-      .orb.two {
-        right: -140px;
-        top: 120px;
-      }
-
-      .orb.three {
-        bottom: -160px;
-        left: 30%;
-      }
-
-      header {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 28px 6vw;
-      }
-
-      .logo {
-        font-family:
-          'Zen Dots',
-          'Lato',
-          sans-serif;
-        font-size: 1.1rem;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #f8fafc;
-      }
-
+    @media (max-width: 960px) {
       nav {
-        display: flex;
-        gap: 24px;
-        font-weight: 500;
-        color: var(--mist);
-      }
-
-      .header-actions {
-        display: flex;
-        gap: 12px;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 20px;
-        border-radius: 999px;
-        font-weight: 600;
-        border: 1px solid transparent;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
-      }
-
-      .btn.primary {
-        background: linear-gradient(120deg, rgba(56, 189, 248, 0.9), rgba(244, 114, 182, 0.85));
-        color: #08101f;
-        box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
-      }
-
-      .btn.ghost {
-        border: 1px solid var(--border);
-        background: rgba(15, 23, 42, 0.5);
-        color: var(--fog);
-      }
-
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
-      }
-
-      main {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        gap: 120px;
-        padding: 40px 6vw 120px;
+        display: none;
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 60px;
-        align-items: center;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding: 20px 6vw;
       }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        background: rgba(56, 189, 248, 0.15);
-        border: 1px solid rgba(56, 189, 248, 0.25);
-        color: var(--fog);
-        font-weight: 600;
-        font-size: 0.85rem;
+      .header-actions {
+        display: none;
       }
 
-      h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2.8rem, 4vw, 4.2rem);
-        margin: 24px 0 16px;
-        line-height: 1.05;
-        color: #f8fafc;
+      main {
+        gap: 80px;
       }
+    }
 
-      .hero p {
-        font-size: 1.05rem;
-        color: var(--mist);
-        line-height: 1.7;
-        max-width: 520px;
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .orb {
+        animation: none;
+        opacity: 1;
+        transform: none;
       }
+    }
+  </style>
+</head>
 
-      .hero-actions {
-        margin-top: 32px;
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
+<body>
+  <div class="page">
+    <div class="orb one"></div>
+    <div class="orb pink two"></div>
+    <div class="orb three"></div>
+    <header>
+      <div class="logo">docco</div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#cta">Access</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn primary" href="#cta">Request access</a>
+      </div>
+    </header>
 
-      .hero-stats {
-        margin-top: 32px;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .stat {
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(15, 23, 42, 0.65);
-        border: 1px solid var(--border);
-        text-align: left;
-      }
-
-      .stat strong {
-        display: block;
-        font-size: 1.25rem;
-        color: #f8fafc;
-      }
-
-      .stat span {
-        color: var(--steel);
-        font-size: 0.85rem;
-      }
-
-      .hero-card {
-        border-radius: var(--radius);
-        background: var(--panel);
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        padding: 28px;
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(18px);
-      }
-
-      .hero-card header {
-        padding: 0;
-        margin-bottom: 20px;
-      }
-
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: rgba(244, 114, 182, 0.12);
-        color: #f8fafc;
-        font-size: 0.8rem;
-        font-weight: 600;
-      }
-
-      .summary {
-        display: grid;
-        gap: 16px;
-      }
-
-      .summary-card {
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(15, 23, 42, 0.7);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-      }
-
-      .summary-card h3 {
-        margin: 0 0 8px;
-        font-size: 0.95rem;
-        color: #f8fafc;
-      }
-
-      .summary-card p {
-        margin: 0;
-        color: var(--mist);
-        font-size: 0.9rem;
-        line-height: 1.5;
-      }
-
-      .trust {
-        display: grid;
-        gap: 24px;
-        text-align: center;
-      }
-
-      .trust-logos {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 20px;
-      }
-
-      .logo-tile {
-        border-radius: 18px;
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        padding: 18px;
-        font-weight: 600;
-        color: var(--mist);
-        letter-spacing: 0.04em;
-      }
-
-      .section-title {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 3vw, 2.8rem);
-        margin: 0 0 12px;
-        color: #f8fafc;
-      }
-
-      .section-lede {
-        margin: 0 auto 32px;
-        max-width: 720px;
-        color: var(--mist);
-        line-height: 1.6;
-      }
-
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 24px;
-      }
-
-      .feature {
-        padding: 24px;
-        border-radius: 20px;
-        background: rgba(15, 23, 42, 0.65);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
-      }
-
-      .feature h3 {
-        margin: 16px 0 8px;
-        color: #f8fafc;
-      }
-
-      .feature p {
-        margin: 0;
-        color: var(--mist);
-        line-height: 1.6;
-      }
-
-      .feature svg {
-        width: 36px;
-        height: 36px;
-        color: var(--sky);
-      }
-
-      .workflow {
-        display: grid;
-        grid-template-columns: minmax(0, 0.6fr) minmax(0, 0.4fr);
-        gap: 48px;
-        align-items: center;
-      }
-
-      .timeline {
-        display: grid;
-        gap: 20px;
-      }
-
-      .step {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 16px;
-        padding: 18px;
-        border-radius: 18px;
-        background: rgba(15, 23, 42, 0.7);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-      }
-
-      .step-number {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        background: rgba(56, 189, 248, 0.2);
-        color: #f8fafc;
-        font-weight: 700;
-      }
-
-      .insight-panel {
-        padding: 28px;
-        border-radius: 22px;
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-        border: 1px solid rgba(148, 163, 184, 0.25);
-      }
-
-      .insight-panel h3 {
-        margin: 0 0 16px;
-        color: #f8fafc;
-      }
-
-      .insight-metric {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-        color: var(--mist);
-      }
-
-      .insight-metric:last-child {
-        border-bottom: none;
-      }
-
-      .badge-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .badge {
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(56, 189, 248, 0.12);
-        border: 1px solid rgba(56, 189, 248, 0.3);
-        color: var(--fog);
-        font-weight: 600;
-        font-size: 0.85rem;
-      }
-
-      .cta {
-        text-align: center;
-        padding: 64px 24px;
-        border-radius: 32px;
-        background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(244, 114, 182, 0.2));
-        border: 1px solid rgba(148, 163, 184, 0.3);
-        box-shadow: 0 26px 80px rgba(15, 23, 42, 0.35);
-      }
-
-      footer {
-        padding: 40px 6vw 80px;
-        color: var(--steel);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .footer-links {
-        display: flex;
-        gap: 20px;
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        animation: reveal 0.8s ease forwards;
-        animation-delay: var(--delay, 0s);
-      }
-
-      @keyframes reveal {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0) translateX(0);
-        }
-        50% {
-          transform: translateY(18px) translateX(12px);
-        }
-      }
-
-      @media (max-width: 960px) {
-        nav {
-          display: none;
-        }
-
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        .workflow {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 720px) {
-        header {
-          padding: 20px 6vw;
-        }
-
-        .hero-stats {
-          grid-template-columns: 1fr;
-        }
-
-        .header-actions {
-          display: none;
-        }
-
-        main {
-          gap: 80px;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .reveal,
-        .orb {
-          animation: none;
-          opacity: 1;
-          transform: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <div class="orb one"></div>
-      <div class="orb pink two"></div>
-      <div class="orb three"></div>
-      <header>
-        <div class="logo">docco</div>
-        <nav>
-          <a href="#platform">Platform</a>
-          <a href="#workflow">Workflow</a>
-          <a href="#security">Security</a>
-          <a href="#pricing">Pricing</a>
-        </nav>
-        <div class="header-actions">
-          <a class="btn ghost" href="#pricing">See pricing</a>
-          <a class="btn primary" href="#cta">Book a demo</a>
-        </div>
-      </header>
-
-      <main>
-        <section class="hero reveal" style="--delay: 0.05s">
-          <div>
-            <span class="eyebrow">Built for high-trust clinical teams</span>
-            <h1>docco turns every visit into clear, shareable clinical intelligence.</h1>
-            <p>
-              Capture conversations, structure decisions, and align care teams in minutes. docco
-              keeps documentation crisp, compliant, and effortlessly ready for follow-up.
-            </p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#cta">Get a tailored demo</a>
-              <a class="btn ghost" href="#platform">View the platform</a>
-            </div>
-            <div class="hero-stats">
-              <div class="stat">
-                <strong>62%</strong>
-                <span>faster note finalization</span>
-              </div>
-              <div class="stat">
-                <strong>4.9/5</strong>
-                <span>clinician satisfaction score</span>
-              </div>
-              <div class="stat">
-                <strong>24/7</strong>
-                <span>secure triage coverage</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-card">
-            <header>
-              <span class="chip">Live visit summary</span>
-            </header>
-            <div class="summary">
-              <div class="summary-card">
-                <h3>Patient: Amina Patel</h3>
-                <p>
-                  Chief concern: post-op recovery. Symptoms improving. docco flagged hydration
-                  goals and symptom tracker for the next 72 hours.
-                </p>
-              </div>
-              <div class="summary-card">
-                <h3>Clinical plan</h3>
-                <p>
-                  Adjust medication timing, schedule virtual check-in, notify care coordinator
-                  and rehab team.
-                </p>
-              </div>
-              <div class="summary-card">
-                <h3>Care team alerts</h3>
-                <p>
-                  Two follow-up tasks ready to sync with EHR. Family portal update queued for
-                  approval.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="trust reveal" style="--delay: 0.15s">
-          <p class="section-lede">Trusted by modern clinics, specialty practices, and care teams.</p>
-          <div class="trust-logos">
-            <div class="logo-tile">Northline Health</div>
-            <div class="logo-tile">Atlas Surgical</div>
-            <div class="logo-tile">Vantage Pediatrics</div>
-            <div class="logo-tile">Nora Recovery</div>
-          </div>
-        </section>
-
-        <section id="platform" class="reveal" style="--delay: 0.25s">
-          <h2 class="section-title">Everything clinicians need to move fast, without losing fidelity.</h2>
-          <p class="section-lede">
-            docco keeps every conversation, clinical decision, and care plan structured in one
-            workspace. Jump from intake to discharge with a calm, consistent interface.
-          </p>
-          <div class="feature-grid">
-            <div class="feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path
-                  d="M4.5 5.5h9.5a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2H6.5L4.5 21V5.5Z"
-                />
-                <path d="M7.5 9h6" />
-                <path d="M7.5 12.5h6" />
-              </svg>
-              <h3>Visit notes that write themselves</h3>
-              <p>Capture conversations, auto-structure SOAP notes, and refine with one tap.</p>
-            </div>
-            <div class="feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M7 4h10v6H7z" />
-                <path d="M4 10h16v10H4z" />
-                <path d="M8 14h8" />
-              </svg>
-              <h3>Team-ready follow-up</h3>
-              <p>Assign tasks, share summaries, and keep care coordinators in sync instantly.</p>
-            </div>
-            <div class="feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="8" />
-                <path d="M12 8v4l2.5 2.5" />
-              </svg>
-              <h3>Real-time safety checks</h3>
-              <p>Flag medication conflicts, surface missing labs, and document compliance.</p>
-            </div>
-            <div class="feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 6h14v12H5z" />
-                <path d="M9 10h6" />
-                <path d="M9 13.5h6" />
-              </svg>
-              <h3>Care intelligence dashboards</h3>
-              <p>Measure outcomes across cohorts, programs, and longitudinal care plans.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="workflow" class="workflow reveal" style="--delay: 0.35s">
-          <div>
-            <h2 class="section-title">A workflow that feels like a calm assistant.</h2>
-            <p class="section-lede">
-              docco mirrors your care flow, capturing what matters and routing everything else to
-              the right team member. No noisy dashboards or extra clicks.
-            </p>
-            <div class="timeline">
-              <div class="step">
-                <div class="step-number">1</div>
-                <div>
-                  <h3>Listen & capture</h3>
-                  <p>Capture the visit in real time while docco drafts structured summaries.</p>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-number">2</div>
-                <div>
-                  <h3>Review & refine</h3>
-                  <p>Approve the note, adjust action items, and sign off in seconds.</p>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-number">3</div>
-                <div>
-                  <h3>Share & act</h3>
-                  <p>Sync tasks to care coordinators, EHRs, and patient-facing updates.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="insight-panel">
-            <h3>Live care pulse</h3>
-            <div class="insight-metric">
-              <span>Visit wrap-up time</span>
-              <strong>3m 12s</strong>
-            </div>
-            <div class="insight-metric">
-              <span>Open follow-ups</span>
-              <strong>7</strong>
-            </div>
-            <div class="insight-metric">
-              <span>Care plan adherence</span>
-              <strong>94%</strong>
-            </div>
-            <div class="badge-row">
-              <span class="badge">HIPAA-ready workflows</span>
-              <span class="badge">SOC 2 Type II</span>
-              <span class="badge">Role-based access</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="security" class="reveal" style="--delay: 0.45s">
-          <h2 class="section-title">Security and compliance designed in, not bolted on.</h2>
-          <p class="section-lede">
-            docco aligns with the highest standards for patient data, with audit trails, encrypted
-            storage, and precise access controls for every care team role.
-          </p>
-          <div class="feature-grid">
-            <div class="feature">
-              <h3>Encrypted everywhere</h3>
-              <p>End-to-end encryption across voice, text, and exported summaries.</p>
-            </div>
-            <div class="feature">
-              <h3>Clinical-grade audit logs</h3>
-              <p>Every action is tracked with role context and incident-ready reporting.</p>
-            </div>
-            <div class="feature">
-              <h3>Configurable retention</h3>
-              <p>Set regional retention rules, patient consent flows, and data expiration.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="pricing" class="cta reveal" style="--delay: 0.55s">
-          <h2 class="section-title">Ready to move your care team faster?</h2>
-          <p class="section-lede">
-            Choose a plan that fits your clinic or enterprise network. We’ll tailor onboarding,
-            integrations, and training so your team feels confident on day one.
-          </p>
-          <div class="hero-actions" style="justify-content: center">
-            <a class="btn primary" href="#cta">Schedule a walkthrough</a>
-            <a class="btn ghost" href="#cta">Request pricing</a>
-          </div>
-        </section>
-      </main>
-
-      <footer id="cta">
+    <main>
+      <section class="hero reveal" style="--delay: 0.05s">
         <div>
-          <div class="logo">docco</div>
-          <p>Clinical intelligence that respects the human side of care.</p>
+          <span class="eyebrow">Patient record recall for images & video</span>
+          <h1>Find any patient image or video in seconds.</h1>
+          <p>
+            docco keeps imaging, scans, and procedure footage on a single timeline. Search by
+            patient, modality, or tag and recall the exact moment you need.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#cta">Request access</a>
+            <a class="btn ghost" href="#features">See features</a>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="#">Support</a>
-          <a href="#">Privacy</a>
-          <a href="#">Security</a>
+        <div class="hero-card">
+          <header>
+            <span class="chip">Patient: Marcus Lee</span>
+          </header>
+          <div class="summary">
+            <div class="summary-card">
+              <h3>Knee MRI · Jun 12, 2024</h3>
+              <p>
+                24 slices, left knee. Tagged with ortho, follow-up, and swelling notes.
+              </p>
+            </div>
+            <div class="summary-card">
+              <h3>Post-op video clip · Apr 02, 2024</h3>
+              <p>
+                3:12 highlight with annotations at 00:42 and 01:55 for quick review.
+              </p>
+            </div>
+            <div class="summary-card">
+              <h3>Wound photo series · Last 10 days</h3>
+              <p>
+                Auto-grouped comparisons and progression notes ready to share.
+              </p>
+            </div>
+          </div>
         </div>
-      </footer>
-    </div>
-  </body>
+      </section>
+      <section id="features" class="reveal" style="--delay: 0.15s">
+        <h2 class="section-title">Recall-ready patient media, organized and searchable.</h2>
+        <p class="section-lede">
+          Images, scans, and videos stay tied to the patient record with consistent tags and
+          timestamps, so teams can find what they need fast.
+        </p>
+        <div class="feature-grid">
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4.5 5.5h9.5a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2H6.5L4.5 21V5.5Z" />
+              <path d="M7.5 9h6" />
+              <path d="M7.5 12.5h6" />
+            </svg>
+            <h3>Unified media vault</h3>
+            <p>Store images, scans, and clips on one patient timeline.</p>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 4h10v6H7z" />
+              <path d="M4 10h16v10H4z" />
+              <path d="M8 14h8" />
+            </svg>
+            <h3>Instant recall</h3>
+            <p>Search by patient, modality, procedure, or tag and jump to the exact frame.</p>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M5 6h14v12H5z" />
+              <path d="M9 10h6" />
+              <path d="M9 13.5h6" />
+            </svg>
+            <h3>Secure collaboration</h3>
+            <p>Share clips and snapshots with permissions, audit trails, and expiring links.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="cta reveal" style="--delay: 0.25s">
+        <h2 class="section-title">Make every patient record easy to recall.</h2>
+        <p class="section-lede">
+          docco keeps clinical media organized, searchable, and ready for care teams the moment
+          they need it.
+        </p>
+        <div class="hero-actions" style="justify-content: center">
+          <a class="btn primary" href="#cta">Request access</a>
+          <a class="btn ghost" href="#features">Review features</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <div class="logo">DOCCO</div>
+        <p>Patient media recall that keeps clinical context intact.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Support</a>
+        <a href="#">Privacy</a>
+        <a href="#">Security</a>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>

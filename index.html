@@ -7,7 +7,8 @@
   <title>docco | AI-powered clinical case recall for images and video</title>
   <meta name="description"
     content="docco uses AI-powered recall and natural-language search to keep clinical imaging fast, secure, and easy to share across care teams." />
-  <meta name="theme-color" content="#0b1120" />
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="docco" />
   <meta property="og:title" content="docco | AI-powered clinical case recall for images and video" />
@@ -29,7 +30,7 @@
     rel="stylesheet" />
   <style>
     :root {
-      color-scheme: dark;
+      color-scheme: light dark;
       --ink: #0f172a;
       --ink-2: #111827;
       --slate: #1e293b;
@@ -384,6 +385,98 @@
 
       50% {
         transform: translateY(18px) translateX(12px);
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        color-scheme: light;
+        --ink: #0f172a;
+        --ink-2: #111827;
+        --slate: #334155;
+        --slate-2: #475569;
+        --fog: #0f172a;
+        --mist: #475569;
+        --steel: #64748b;
+        --sky: #0284c7;
+        --pink: #db2777;
+        --glow: rgba(56, 189, 248, 0.22);
+        --glow-2: rgba(244, 114, 182, 0.2);
+        --panel: rgba(248, 250, 252, 0.9);
+        --panel-strong: rgba(248, 250, 252, 0.98);
+        --border: rgba(148, 163, 184, 0.45);
+        --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.2), transparent 50%),
+          radial-gradient(circle at 85% 0%, rgba(244, 114, 182, 0.2), transparent 45%),
+          radial-gradient(circle at 75% 70%, rgba(56, 189, 248, 0.14), transparent 55%),
+          #f8fafc;
+        color: var(--ink-2);
+      }
+
+      .page::before {
+        background-image:
+          linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+        opacity: 0.22;
+      }
+
+      .logo,
+      h1,
+      .section-title,
+      .summary-card h3,
+      .feature h3 {
+        color: var(--ink-2);
+      }
+
+      nav {
+        color: var(--slate);
+      }
+
+      .hero p,
+      .section-lede,
+      .summary-card p,
+      .feature p,
+      footer {
+        color: var(--slate-2);
+      }
+
+      .btn.ghost {
+        background: rgba(248, 250, 252, 0.9);
+        border-color: var(--border);
+        color: var(--ink-2);
+      }
+
+      .btn:hover {
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+      }
+
+      .hero-card {
+        border-color: var(--border);
+      }
+
+      .chip {
+        color: var(--ink-2);
+        background: rgba(244, 114, 182, 0.18);
+      }
+
+      .summary-card {
+        background: rgba(248, 250, 252, 0.9);
+        border-color: var(--border);
+      }
+
+      .feature {
+        background: rgba(248, 250, 252, 0.88);
+        border-color: var(--border);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+      }
+
+      .cta {
+        border-color: var(--border);
+        box-shadow: 0 26px 80px rgba(15, 23, 42, 0.16);
       }
     }
 

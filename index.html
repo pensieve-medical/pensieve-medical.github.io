@@ -495,11 +495,18 @@
       }
 
       .header-actions {
-        display: none;
+        display: flex;
       }
 
       main {
         gap: 80px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .header-actions .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
       }
     }
 

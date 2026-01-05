@@ -58,11 +58,6 @@ const qrDarkSrc = '/qr/whatsapp-dark.svg';
       return;
     }
     window.location.href = whatsappAppLink;
-    window.setTimeout(() => {
-      if (!document.hidden && whatsappModal) {
-        openModal(whatsappModal);
-      }
-    }, 1200);
   };
 
   modalTriggers.forEach((trigger) => {

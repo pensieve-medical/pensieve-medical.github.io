@@ -3,11 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:qr": "bun scripts/generate-qr.mjs",
+    "predev": "bun run generate:qr",
     "dev": "bunx astro dev",
+    "prebuild": "bun run generate:qr",
     "build": "bunx astro build",
     "preview": "bunx astro preview"
   },
   "dependencies": {
-    "astro": "^5.16.6"
+    "astro": "^5.16.6",
+    "qrcode-generator": "^1.4.4"
   }
 }

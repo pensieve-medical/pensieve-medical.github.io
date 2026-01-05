@@ -4,7 +4,8 @@ const whatsappPhone = '919226386487';
 const encodedMessage = encodeURIComponent(whatsappMessage);
 const whatsappLink = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
 const whatsappAppLink = `whatsapp://send?phone=${whatsappPhone}&text=${encodedMessage}`;
-const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(whatsappLink)}`;
+const qrLightSrc = '/qr/whatsapp-light.svg';
+const qrDarkSrc = '/qr/whatsapp-dark.svg';
 ---
 <div class="modal" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-modal="true"
   data-whatsapp-link={whatsappLink} data-whatsapp-app-link={whatsappAppLink}>
@@ -13,7 +14,10 @@ const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data
     <h3>Contact Us Via Whatsapp</h3>
     <p>Scan QR code to contact us.</p>
     <div class="modal-qr">
-      <img alt="WhatsApp QR code" src={qrCodeUrl} />
+      <picture>
+        <source srcset={qrDarkSrc} media="(prefers-color-scheme: dark)" />
+        <img alt="WhatsApp QR code" src={qrLightSrc} width="220" height="220" loading="lazy" />
+      </picture>
     </div>
   </div>
 </div>

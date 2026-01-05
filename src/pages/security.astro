@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'docco | Security',
+  description: 'An overview of the security practices used to protect data in docco.',
+  ogTitle: 'docco | Security',
+  ogDescription: 'An overview of the security practices used to protect data in docco.',
+  ogUrl: 'https://docco.in/security',
+  ogImage: 'https://docco.in/og-image.png',
+  twitterTitle: 'docco | Security',
+  twitterDescription: 'An overview of the security practices used to protect data in docco.',
+  twitterImage: 'https://docco.in/og-image.png',
+};
+---
+<BaseLayout {...meta} pageClass="policy" showBack={true}>
+  <section class="policy-content">
+    <h1>Security</h1>
+    <p>This placeholder page summarizes the security principles we follow to safeguard customer data.</p>
+
+    <h2>Data protection</h2>
+    <p>We use access controls, encryption in transit, and least-privilege practices to protect sensitive information.</p>
+
+    <h2>Operational security</h2>
+    <p>We monitor systems for suspicious activity and maintain logs to investigate and respond to incidents.</p>
+
+    <h2>Vendor management</h2>
+    <p>We use reputable service providers and review their security practices as part of our risk management process.</p>
+
+    <h2>Aadhar verification (via DigiLocker)</h2>
+    <p>We require Aadhar verification through DigiLocker to reduce fraud, deter misuse, and ensure that access to sensitive clinical media is limited to verified users.</p>
+
+    <h2>Incident response</h2>
+    <p>We maintain an incident response plan and notify impacted customers when required by law or contract.</p>
+
+    <h2>Contact</h2>
+    <p>For security questions or vulnerability reports, contact support.</p>
+
+    <p class="policy-note">This is a placeholder summary and will be replaced with the full security disclosure.</p>
+  </section>
+</BaseLayout>

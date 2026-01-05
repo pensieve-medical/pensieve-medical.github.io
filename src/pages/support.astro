@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'docco | Support',
+  description: 'Get help from the docco team.',
+  ogTitle: 'docco | Support',
+  ogDescription: 'Get help from the docco team.',
+  ogUrl: 'https://docco.in/support',
+  ogImage: 'https://docco.in/og-image.png',
+  twitterTitle: 'docco | Support',
+  twitterDescription: 'Get help from the docco team.',
+  twitterImage: 'https://docco.in/og-image.png',
+};
+
+const supportEmail = 'contact@superobvious.in';
+const supportEmailDisplay = 'contact[at]superobvious.in';
+---
+<BaseLayout {...meta} pageClass="policy" showBack={true} showWhatsappModal={true}>
+  <section class="policy-content">
+    <h1>Support</h1>
+    <p>We are here to help. Reach out anytime and we will get back to you as soon as possible.</p>
+
+    <h2>Email</h2>
+    <p>
+      <a href={`mailto:${supportEmail}`}>{supportEmailDisplay}</a>
+    </p>
+
+    <h2>WhatsApp</h2>
+    <p>You can also contact us via WhatsApp for quick assistance.</p>
+    <div class="hero-actions">
+      <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
+    </div>
+
+    <p class="policy-note">This page is a placeholder and will be expanded with additional support options.</p>
+  </section>
+</BaseLayout>

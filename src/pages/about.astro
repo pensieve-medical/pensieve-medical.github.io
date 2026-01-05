@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'docco | About Us',
+  description: 'Meet the small team building docco with care and a customer-first mindset.',
+  ogTitle: 'docco | About Us',
+  ogDescription: 'Meet the small team building docco with care and a customer-first mindset.',
+  ogUrl: 'https://docco.in/about',
+  ogImage: 'https://docco.in/og-image.png',
+  twitterTitle: 'docco | About Us',
+  twitterDescription: 'Meet the small team building docco with care and a customer-first mindset.',
+  twitterImage: 'https://docco.in/og-image.png',
+};
+---
+<BaseLayout {...meta} pageClass="policy" showBack={true}>
+  <section class="policy-content">
+    <h1>About Us</h1>
+    <p>We are a small, non-VC backed, family owned business that builds with heart and puts customers first.</p>
+    <p>Every feature we ship is guided by one simple idea: your trust matters. We value your data and privacy, and we treat every interaction with care.</p>
+
+    <h2>Where we are</h2>
+    <p>We are based out of Koramangala, Bengaluru, and we love working closely with clinicians and teams who care deeply about their patients.</p>
+
+    <p class="policy-note">Thanks for letting us be a small part of your workflow. We are grateful for the opportunity to earn your trust every day.</p>
+  </section>
+</BaseLayout>

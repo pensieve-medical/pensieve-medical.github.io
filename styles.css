@@ -186,6 +186,11 @@ main {
   padding: 24px 6vw 120px;
 }
 
+.page.policy main {
+  gap: 32px;
+  padding: 40px 6vw 120px;
+}
+
 .hero {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -457,6 +462,38 @@ h1 {
   border-color: rgba(56, 189, 248, 0.5);
   background: linear-gradient(150deg, rgba(56, 189, 248, 0.2), rgba(79, 191, 156, 0.12));
   box-shadow: 0 26px 60px rgba(56, 189, 248, 0.25);
+}
+
+.policy-content {
+  max-width: 760px;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--panel);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: var(--shadow);
+}
+
+.policy-content h1 {
+  margin-top: 0;
+  font-size: clamp(2.2rem, 3vw, 3rem);
+}
+
+.policy-content h2 {
+  margin: 28px 0 10px;
+  font-size: 1.2rem;
+  color: #f8fafc;
+}
+
+.policy-content p {
+  margin: 0 0 14px;
+  color: var(--mist);
+  line-height: 1.7;
+}
+
+.policy-note {
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: var(--steel);
 }
 
 .plan-name {
@@ -769,6 +806,18 @@ footer {
     border-color: rgba(2, 132, 199, 0.45);
     background: linear-gradient(150deg, rgba(56, 189, 248, 0.18), rgba(58, 169, 132, 0.12));
     box-shadow: 0 26px 60px rgba(2, 132, 199, 0.18);
+  }
+
+  .policy-content {
+    border-color: var(--border);
+  }
+
+  .policy-content h2 {
+    color: var(--ink-2);
+  }
+
+  .policy-content p {
+    color: var(--slate-2);
   }
 
   .modal-qr .qr-image-dark {

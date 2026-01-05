@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'docco | Page Not Found',
+  description: 'The page you are looking for could not be found.',
+  ogTitle: 'docco | Page Not Found',
+  ogDescription: 'The page you are looking for could not be found.',
+  ogUrl: 'https://docco.in/404',
+  ogImage: 'https://docco.in/og-image.png',
+  twitterTitle: 'docco | Page Not Found',
+  twitterDescription: 'The page you are looking for could not be found.',
+  twitterImage: 'https://docco.in/og-image.png',
+};
+---
+<BaseLayout {...meta} pageClass="policy" showBack={true}>
+  <section class="policy-content">
+    <h1>Page not found</h1>
+    <p>We could not find that page. It might have moved, or the link might be outdated.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="/">Go to home</a>
+      <a class="btn ghost" href="/pricing">See pricing</a>
+    </div>
+    <p class="policy-note">If you think this is a mistake, reach out and we will help.</p>
+  </section>
+</BaseLayout>

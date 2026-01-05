@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'docco | Privacy Policy',
+  description: 'Learn how docco collects, uses, and protects your information.',
+  ogTitle: 'docco | Privacy Policy',
+  ogDescription: 'Learn how docco collects, uses, and protects your information.',
+  ogUrl: 'https://docco.in/privacy',
+  ogImage: 'https://docco.in/og-image.png',
+  twitterTitle: 'docco | Privacy Policy',
+  twitterDescription: 'Learn how docco collects, uses, and protects your information.',
+  twitterImage: 'https://docco.in/og-image.png',
+};
+---
+<BaseLayout {...meta} pageClass="policy" showBack={true}>
+  <section class="policy-content">
+    <h1>Privacy Policy</h1>
+    <p>We respect your privacy. This placeholder policy explains the general types of information we may collect, how we use it, and the choices you have.</p>
+
+    <h2>Information we collect</h2>
+    <p>We may collect account details (such as name, email, and organization), usage data (such as pages viewed and actions taken), and device or browser information to help improve the product.</p>
+
+    <h2>How we use information</h2>
+    <p>We use information to provide and improve the service, respond to support requests, maintain security, and comply with legal obligations.</p>
+
+    <h2>Sharing</h2>
+    <p>We do not sell personal information. We may share limited data with trusted service providers that help us operate the site, subject to confidentiality and data protection obligations.</p>
+
+    <h2>Aadhar verification (via DigiLocker)</h2>
+    <p>We use Aadhar verification through DigiLocker to help confirm user identity and prevent abuse of the platform. This step supports safety, compliance, and responsible use of clinical media.</p>
+
+    <h2>Retention</h2>
+    <p>We keep information only as long as necessary to provide the service, meet legal requirements, or resolve disputes.</p>
+
+    <h2>Your choices</h2>
+    <p>You may request access, correction, or deletion of your information. Contact us for assistance.</p>
+
+    <h2>Contact</h2>
+    <p>For privacy questions, reach out to support.</p>
+
+    <p class="policy-note">This is a placeholder policy and will be updated with the full legal text.</p>
+  </section>
+</BaseLayout>

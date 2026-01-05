@@ -1,223 +1,110 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>docco | AI-powered clinical case recall for images and video</title>
-  <meta name="description"
-    content="docco uses AI-powered recall and natural-language search to keep clinical imaging fast, secure, and easy to share across care teams." />
-  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="docco" />
-  <meta property="og:title" content="docco | AI-powered clinical case recall for images and video" />
-  <meta property="og:description"
-    content="Find any patient image or video in seconds with AI-powered recall and natural-language search." />
-  <meta property="og:url" content="https://docco.in/" />
-  <meta property="og:image" content="https://docco.in/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="docco | AI-powered clinical case recall for images and video" />
-  <meta name="twitter:description"
-    content="Find any patient image or video in seconds with AI-powered recall and natural-language search." />
-  <meta name="twitter:image" content="https://docco.in/og-image.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Zen+Dots&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-  <div class="page home">
-    <div class="orb one"></div>
-    <div class="orb pink two"></div>
-    <div class="orb three"></div>
+---
+layout: default
+title: "docco | AI-powered clinical case recall for images and video"
+description: "docco uses AI-powered recall and natural-language search to keep clinical imaging fast, secure, and easy to share across care teams."
+og_title: "docco | AI-powered clinical case recall for images and video"
+og_description: "Find any patient image or video in seconds with AI-powered recall and natural-language search."
+og_url: "https://docco.in/"
+og_image: "https://docco.in/og-image.png"
+twitter_title: "docco | AI-powered clinical case recall for images and video"
+twitter_description: "Find any patient image or video in seconds with AI-powered recall and natural-language search."
+twitter_image: "https://docco.in/og-image.png"
+page_class: home
+whatsapp_modal: true
+show_back: false
+---
+<section class="hero reveal" style="--delay: 0.05s">
+  <div>
+    <span class="eyebrow">AI-powered clinical case recall for images & video</span>
+    <h1>Instantly find your medical case photos & videos using <strong>AI-powered</strong> search.</h1>
+    <p>
+      docco keeps imaging, scans, and procedure footage on a single timeline. Ask in natural
+      language or search by patient, modality, or tag. AI-powered recall surfaces the exact
+      moment you need.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="pricing.html">See pricing</a>
+      <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
+    </div>
+  </div>
+  <div class="hero-card">
     <header>
-      <div class="logo">docco</div>
-      <div class="header-actions">
-        <a class="btn primary"
-          href="https://login.docco.in">Login /
-          Sign Up</a>
-      </div>
+      <span class="chip">Patient: Baburao Apte</span>
     </header>
-
-    <main>
-      <section class="hero reveal" style="--delay: 0.05s">
-        <div>
-          <span class="eyebrow">AI-powered clinical case recall for images & video</span>
-          <h1>Instantly find your medical case photos & videos using <strong>AI-powered</strong> search.</h1>
-          <p>
-            docco keeps imaging, scans, and procedure footage on a single timeline. Ask in natural
-            language or search by patient, modality, or tag. AI-powered recall surfaces the exact
-            moment you need.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="pricing.html">See pricing</a>
-            <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
-          </div>
-        </div>
-        <div class="hero-card">
-          <header>
-            <span class="chip">Patient: Baburao Apte</span>
-          </header>
-          <div class="summary">
-            <div class="summary-card">
-              <h3>Knee MRI · Jun 12, 2024</h3>
-              <p>
-                24 slices, left knee. Tagged with ortho, follow-up, and swelling notes.
-              </p>
-            </div>
-            <div class="summary-card">
-              <h3>Post-op video clip · Apr 02, 2024</h3>
-              <p>
-                3:12 highlight with annotations at 00:42 and 01:55 for quick review.
-              </p>
-            </div>
-            <div class="summary-card">
-              <h3>Wound photo series · Last 10 days</h3>
-              <p>
-                Auto-grouped comparisons and progression notes ready to share.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="features" class="reveal" style="--delay: 0.15s">
-        <h2 class="section-title">AI-powered recall, organized patient media, natural-language search.</h2>
-        <p class="section-lede">
-          Images, scans, and videos stay tied to the patient record with consistent tags and
-          timestamps, while AI-powered recall and natural-language search help teams find what they
-          need fast.
+    <div class="summary">
+      <div class="summary-card">
+        <h3>Knee MRI · Jun 12, 2024</h3>
+        <p>
+          24 slices, left knee. Tagged with ortho, follow-up, and swelling notes.
         </p>
-        <div class="feature-grid">
-          <div class="feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
-              <path d="M10 9l5 3-5 3z" />
-            </svg>
-            <h3>Unified Media Vault</h3>
-            <p>Store images, scans, and clips on one patient timeline.</p>
-          </div>
-          <div class="feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="9.5" cy="9.5" r="5.5" />
-              <path d="M13.5 13.5l3.8 3.8" />
-              <circle cx="17.5" cy="6.5" r="3" />
-              <path d="M17.5 5v1.8l1.2 0.7" />
-            </svg>
-            <h3>Instant Recall</h3>
-            <p>All of your cases. All your case media. At your fingertips. No matter now old.</p>
-          </div>
-          <div class="feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="5" y="5" width="14" height="14" rx="2" />
-              <path d="M12 3v2" />
-              <path d="M12 19v2" />
-              <path d="M3 12h2" />
-              <path d="M19 12h2" />
-              <path d="M9 15l2-6 2 6" />
-              <path d="M10 12h2" />
-              <path d="M15 9v6" />
-            </svg>
-            <h3>AI Powered Search</h3>
-            <p>You plain english language to find any cases you are looking for. No remembering IDs or exact keywords
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="cta" class="cta reveal" style="--delay: 0.25s">
-        <h2 class="section-title">Easy, fast access to all your cases.</h2>
-        <p class="section-lede">
-          docco keeps clinical media organized, searchable with natural language, and ready for
-          care teams the moment they need it.
+      </div>
+      <div class="summary-card">
+        <h3>Post-op video clip · Apr 02, 2024</h3>
+        <p>
+          3:12 highlight with annotations at 00:42 and 01:55 for quick review.
         </p>
-        <div class="hero-actions" style="justify-content: center">
-          <a class="btn primary" href="pricing.html">See pricing</a>
-          <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
-        </div>
-      </section>
-    </main>
-
-    <div class="modal" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="modal-content">
-        <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
-        <h3>Contact Us Via Whatsapp</h3>
-        <p>Scan QR code to contact us.</p>
-        <div class="modal-qr">
-          <img alt="WhatsApp QR code"
-            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwa.me%2F919226386487%3Ftext%3D%25F0%259F%2591%258B%2520Hi%21%2520I%2520am%2520interested%2520in%2520docco" />
-        </div>
+      </div>
+      <div class="summary-card">
+        <h3>Wound photo series · Last 10 days</h3>
+        <p>
+          Auto-grouped comparisons and progression notes ready to share.
+        </p>
       </div>
     </div>
-    <footer>
-      <div>
-        <div class="logo">DOCCO</div>
-        <p>AI-powered clinical case recall with natural-language search.</p>
-        <p class="footer-note">Made with 🩵 in Bengaluru</p>
-      </div>
-      <div class="footer-links">
-        <a href="#">Support</a>
-        <a href="#">Privacy</a>
-        <a href="#">Security</a>
-      </div>
-    </footer>
   </div>
-  <script>
-    const modalTriggers = document.querySelectorAll('[data-modal-target]');
-    const modalCloses = document.querySelectorAll('[data-modal-close]');
-    const modals = document.querySelectorAll('.modal');
+</section>
+<section id="features" class="reveal" style="--delay: 0.15s">
+  <h2 class="section-title">AI-powered recall, organized patient media, natural-language search.</h2>
+  <p class="section-lede">
+    Images, scans, and videos stay tied to the patient record with consistent tags and
+    timestamps, while AI-powered recall and natural-language search help teams find what they
+    need fast.
+  </p>
+  <div class="feature-grid">
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
+        <path d="M10 9l5 3-5 3z" />
+      </svg>
+      <h3>Unified Media Vault</h3>
+      <p>Store images, scans, and clips on one patient timeline.</p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="9.5" cy="9.5" r="5.5" />
+        <path d="M13.5 13.5l3.8 3.8" />
+        <circle cx="17.5" cy="6.5" r="3" />
+        <path d="M17.5 5v1.8l1.2 0.7" />
+      </svg>
+      <h3>Instant Recall</h3>
+      <p>All of your cases. All your case media. At your fingertips. No matter now old.</p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="5" y="5" width="14" height="14" rx="2" />
+        <path d="M12 3v2" />
+        <path d="M12 19v2" />
+        <path d="M3 12h2" />
+        <path d="M19 12h2" />
+        <path d="M9 15l2-6 2 6" />
+        <path d="M10 12h2" />
+        <path d="M15 9v6" />
+      </svg>
+      <h3>AI Powered Search</h3>
+      <p>You plain english language to find any cases you are looking for. No remembering IDs or exact keywords
+      </p>
+    </div>
+  </div>
+</section>
 
-    const openModal = (modal) => {
-      if (!modal) {
-        return;
-      }
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    };
-
-    const closeModal = (modal) => {
-      if (!modal) {
-        return;
-      }
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
-
-    modalTriggers.forEach((trigger) => {
-      trigger.addEventListener('click', () => {
-        const modal = document.getElementById(trigger.dataset.modalTarget);
-        openModal(modal);
-      });
-    });
-
-    modalCloses.forEach((button) => {
-      button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        closeModal(modal);
-      });
-    });
-
-    modals.forEach((modal) => {
-      modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-          closeModal(modal);
-        }
-      });
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        modals.forEach((modal) => closeModal(modal));
-      }
-    });
-  </script>
-</body>
-
-</html>
+<section id="cta" class="cta reveal" style="--delay: 0.25s">
+  <h2 class="section-title">Easy, fast access to all your cases.</h2>
+  <p class="section-lede">
+    docco keeps clinical media organized, searchable with natural language, and ready for
+    care teams the moment they need it.
+  </p>
+  <div class="hero-actions" style="justify-content: center">
+    <a class="btn primary" href="pricing.html">See pricing</a>
+    <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+---
+const whatsappLink = 'https://wa.me/919226386487?text=%F0%9F%91%8B%20Hi!%20I%20am%20interested%20in%20docco';
+const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwa.me%2F919226386487%3Ftext%3D%25F0%259F%2591%258B%2520Hi%21%2520I%2520am%2520interested%2520in%2520docco';
+---
+<div class="modal" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+    <h3>Contact Us Via Whatsapp</h3>
+    <p>Scan QR code to contact us.</p>
+    <div class="modal-qr">
+      <img alt="WhatsApp QR code" src={qrCodeUrl} />
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const modalTriggers = document.querySelectorAll('[data-modal-target]');
+  const modalCloses = document.querySelectorAll('[data-modal-close]');
+  const modals = document.querySelectorAll('.modal');
+  const whatsappLink = "https://wa.me/919226386487?text=%F0%9F%91%8B%20Hi!%20I%20am%20interested%20in%20docco";
+
+  const isPhoneDevice = () => {
+    if (navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean') {
+      return navigator.userAgentData.mobile;
+    }
+    return /Android|iPhone|iPod|IEMobile|BlackBerry|Opera Mini|Windows Phone/i.test(navigator.userAgent);
+  };
+
+  const openModal = (modal) => {
+    if (!modal) {
+      return;
+    }
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = (modal) => {
+    if (!modal) {
+      return;
+    }
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  modalTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      if (trigger.dataset.modalTarget === 'whatsapp-modal' && isPhoneDevice()) {
+        window.location.href = whatsappLink;
+        return;
+      }
+      const modal = document.getElementById(trigger.dataset.modalTarget);
+      openModal(modal);
+    });
+  });
+
+  modalCloses.forEach((button) => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      closeModal(modal);
+    });
+  });
+
+  modals.forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      modals.forEach((modal) => closeModal(modal));
+    }
+  });
+</script>

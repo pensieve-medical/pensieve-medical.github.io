@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const meta = {
+  title: 'docco | Pricing & Plans',
+  description: 'Simple, transparent pricing for AI-powered clinical case recall.',
+  ogTitle: 'docco | Pricing & Plans',
+  ogDescription: 'Simple, transparent pricing for AI-powered clinical case recall.',
+  ogUrl: 'https://docco.in/pricing',
+  ogImage: 'https://docco.in/og-image.png',
+  twitterTitle: 'docco | Pricing & Plans',
+  twitterDescription: 'Simple, transparent pricing for AI-powered clinical case recall.',
+  twitterImage: 'https://docco.in/og-image.png',
+};
+---
+<BaseLayout {...meta} pageClass="pricing" showBack={true}>
+  <section class="pricing-hero reveal" style="--delay: 0.05s">
+    <span class="eyebrow">Pricing &amp; Plans</span>
+    <h1>Choose the plan that fits your case volume.</h1>
+    <p>
+      Simple pricing for teams organizing clinical photos, scans, and procedure footage.
+      Upgrade anytime as your media library grows.
+    </p>
+  </section>
+
+  <section class="pricing-plans reveal" style="--delay: 0.15s">
+    <div class="pricing-grid">
+      <article class="plan-card">
+        <div>
+          <h3 class="plan-name">Free</h3>
+          <p class="plan-price">₹0</p>
+        </div>
+        <ul class="plan-list">
+          <li>Up to 5 cases</li>
+          <li>Up to 5 images per case</li>
+          <li>1 video per case<span class="asterisk">*</span></li>
+        </ul>
+      </article>
+
+      <article class="plan-card">
+        <div>
+          <h3 class="plan-name">Plus</h3>
+          <p class="plan-price">₹3,000 / month</p>
+          <p class="plan-billing">₹30,000 annual</p>
+        </div>
+        <ul class="plan-list">
+          <li>
+            Up to 1,000 cases
+            <span class="tooltip" tabindex="0"
+              data-tooltip="Add any number of cases in first 4 weeks after subscription starts. 3 cases per week after that.">
+              <span class="tooltip-icon" aria-hidden="true">i</span>
+            </span>
+          </li>
+          <li>Unlimited photos per case</li>
+          <li>1 video per case<span class="asterisk">*</span></li>
+          <li>Upto 720p video playback</li>
+        </ul>
+      </article>
+
+      <article class="plan-card">
+        <div>
+          <h3 class="plan-name">Pro</h3>
+          <p class="plan-price">₹9,000 / month</p>
+          <p class="plan-billing">₹80,000 annual</p>
+        </div>
+        <ul class="plan-list">
+          <li>Unlimited cases</li>
+          <li>Unlimited photos per case</li>
+          <li>Unlimited videos per case<span class="asterisk">*</span></li>
+          <li>Upto <strong>8K resolution</strong> video playback</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="plan-footnote">
+      <span class="asterisk">*</span>Video upload requires
+      <span class="tooltip" tabindex="0"
+        data-tooltip="Aadhar verification helps us protect the platform from pornography and other forms of abuse">
+        Aadhar verification
+        <span class="tooltip-icon" aria-hidden="true">i</span>
+      </span>.
+    </p>
+  </section>
+</BaseLayout>

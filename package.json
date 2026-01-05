@@ -1,0 +1,13 @@
+{
+  "name": "pensieve-medical",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bunx astro dev",
+    "build": "bunx astro build",
+    "preview": "bunx astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.16.6"
+  }
+}

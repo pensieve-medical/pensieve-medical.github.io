@@ -1,0 +1,10 @@
+---
+const { showBack = false } = Astro.props;
+---
+<header>
+  <div class="logo">docco</div>
+  <div class="header-actions">
+    {showBack && <a class="btn ghost" href="/">Back to home</a>}
+    <a class="btn primary" href="https://login.docco.in">Login / Sign Up</a>
+  </div>
+</header>

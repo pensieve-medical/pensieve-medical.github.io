@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}" />
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="docco" />
+  <meta property="og:title" content="{{ page.og_title | default: page.title }}" />
+  <meta property="og:description" content="{{ page.og_description | default: page.description }}" />
+  <meta property="og:url" content="{{ page.og_url }}" />
+  <meta property="og:image" content="{{ page.og_image }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ page.twitter_title | default: page.title }}" />
+  <meta name="twitter:description" content="{{ page.twitter_description | default: page.description }}" />
+  <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Zen+Dots&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}" />
+</head>
+
+<body>
+  <div class="page {{ page.page_class }}">
+    <div class="orb one"></div>
+    <div class="orb pink two"></div>
+    <div class="orb three"></div>
+    {% include header.html %}
+    <main>
+      {{ content }}
+    </main>
+    {% if page.whatsapp_modal %}
+    {% include whatsapp-modal.html %}
+    {% endif %}
+    {% include footer.html %}
+  </div>
+  {% if page.whatsapp_modal %}
+  {% include whatsapp-script.html %}
+  {% endif %}
+</body>
+
+</html>

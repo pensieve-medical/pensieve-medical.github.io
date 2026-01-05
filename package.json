@@ -4,14 +4,16 @@
   "type": "module",
   "scripts": {
     "generate:qr": "bun scripts/generate-qr.mjs",
-    "predev": "bun run generate:qr",
+    "sync:styles": "cp styles.css public/styles.css",
+    "predev": "bun run generate:qr && bun run sync:styles",
     "dev": "bunx astro dev",
-    "prebuild": "bun run generate:qr",
+    "prebuild": "bun run generate:qr && bun run sync:styles",
     "build": "bunx astro build",
     "preview": "bunx astro preview"
   },
   "dependencies": {
     "astro": "^5.16.6",
-    "qrcode-generator": "^1.4.4"
+    "jsdom": "^24.0.0",
+    "qr-code-styling": "^1.6.0-rc.1"
   }
 }

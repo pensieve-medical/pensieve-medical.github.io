@@ -16,6 +16,8 @@
   --border: rgba(148, 163, 184, 0.25);
   --qr-bg: #0b1120;
   --qr-border: rgba(148, 163, 184, 0.35);
+  --plan-pill-bg: rgba(56, 189, 248, 0.18);
+  --plan-pill-border: rgba(56, 189, 248, 0.45);
   --radius: 24px;
   --shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
 }
@@ -372,8 +374,8 @@ h1 {
 }
 
 .modal-qr {
-  width: 220px;
-  height: 220px;
+  width: 320px;
+  height: 320px;
   margin: 0 auto;
   border-radius: 16px;
   background: var(--qr-bg);
@@ -459,8 +461,19 @@ h1 {
 
 .plan-name {
   margin: 0;
-  font-size: 1.25rem;
+  font-family: 'Zen Dots', 'Lato', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--plan-pill-bg);
+  border: 1px solid var(--plan-pill-border);
+  align-self: flex-start;
   color: #f8fafc;
+  margin-bottom: 12px;
 }
 
 .plan-price {
@@ -650,6 +663,8 @@ footer {
     --border: rgba(148, 163, 184, 0.45);
     --qr-bg: #ffffff;
     --qr-border: rgba(148, 163, 184, 0.45);
+    --plan-pill-bg: rgba(2, 132, 199, 0.12);
+    --plan-pill-border: rgba(2, 132, 199, 0.3);
     --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
   }
 

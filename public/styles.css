@@ -1,5 +1,6 @@
 :root {
   color-scheme: light dark;
+  accent-color: var(--sky);
   --ink: #0f172a;
   --ink-2: #111827;
   --slate: #1e293b;

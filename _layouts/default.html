@@ -4,10 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="msapplication-TileColor" content="#0b1120" />
+  <meta name="msapplication-navbutton-color" content="#0b1120" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}" />
   <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b1120" id="theme-color-dynamic" />
+  <script>
+    (() => {
+      const themeMeta = document.getElementById('theme-color-dynamic');
+      if (!themeMeta || !window.matchMedia) {
+        return;
+      }
+      const darkColor = '#0b1120';
+      const lightColor = '#f8fafc';
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const applyTheme = () => {
+        themeMeta.setAttribute('content', media.matches ? darkColor : lightColor);
+      };
+      applyTheme();
+      if (media.addEventListener) {
+        media.addEventListener('change', applyTheme);
+      } else if (media.addListener) {
+        media.addListener(applyTheme);
+      }
+    })();
+  </script>
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="docco" />
   <meta property="og:title" content="{{ page.og_title | default: page.title }}" />

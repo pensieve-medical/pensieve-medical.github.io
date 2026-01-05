@@ -26,513 +26,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Zen+Dots&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Zen+Dots&display=swap"
     rel="stylesheet" />
-  <style>
-    :root {
-      color-scheme: light dark;
-      --ink: #0f172a;
-      --ink-2: #111827;
-      --slate: #1e293b;
-      --slate-2: #334155;
-      --fog: #e2e8f0;
-      --mist: #cbd5e1;
-      --steel: #94a3b8;
-      --sky: #38bdf8;
-      --pink: #4fbf9c;
-      --glow: rgba(56, 189, 248, 0.35);
-      --glow-2: rgba(79, 191, 156, 0.28);
-      --panel: rgba(15, 23, 42, 0.78);
-      --panel-strong: rgba(15, 23, 42, 0.94);
-      --border: rgba(148, 163, 184, 0.25);
-      --radius: 24px;
-      --shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family:
-        'Lato',
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        'Roboto',
-        'Oxygen',
-        'Ubuntu',
-        'Cantarell',
-        'Fira Sans',
-        'Droid Sans',
-        'Helvetica Neue',
-        sans-serif;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 50%),
-        radial-gradient(circle at 85% 0%, rgba(79, 191, 156, 0.14), transparent 45%),
-        radial-gradient(circle at 75% 70%, rgba(56, 189, 248, 0.12), transparent 55%),
-        #0b1120;
-      color: var(--fog);
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: 0.16;
-      pointer-events: none;
-    }
-
-    .orb {
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      filter: blur(0);
-      background: radial-gradient(circle, var(--glow), transparent 70%);
-      opacity: 0.6;
-      animation: float 10s ease-in-out infinite;
-    }
-
-    .orb.pink {
-      background: radial-gradient(circle, var(--glow-2), transparent 70%);
-      animation-delay: -3s;
-    }
-
-    .orb.one {
-      top: -160px;
-      left: -80px;
-    }
-
-    .orb.two {
-      right: -140px;
-      top: 120px;
-    }
-
-    .orb.three {
-      bottom: -160px;
-      left: 30%;
-    }
-
-    header {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 6vw;
-    }
-
-    .logo {
-      font-family:
-        'Zen Dots',
-        'Lato',
-        sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.16em;
-      text-transform: lowercase;
-      color: #f8fafc;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-      font-weight: 500;
-      color: var(--mist);
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
-    }
-
-    .btn.primary {
-      background: linear-gradient(120deg, rgba(56, 189, 248, 0.9), rgba(79, 191, 156, 0.7));
-      color: #08101f;
-      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
-    }
-
-    .btn.ghost {
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.5);
-      color: var(--fog);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
-    }
-
-    main {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 120px;
-      padding: 40px 6vw 120px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 60px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: var(--fog);
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 4vw, 4.2rem);
-      margin: 24px 0 16px;
-      line-height: 1.05;
-      color: #f8fafc;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--mist);
-      line-height: 1.7;
-      max-width: 520px;
-    }
-
-    .hero-actions {
-      margin-top: 32px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .hero-card {
-      border-radius: var(--radius);
-      background: var(--panel);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    .hero-card header {
-      padding: 0;
-      margin-bottom: 20px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(79, 191, 156, 0.1);
-      color: #f8fafc;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .summary {
-      display: grid;
-      gap: 16px;
-    }
-
-    .summary-card {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-    }
-
-    .summary-card h3 {
-      margin: 0 0 8px;
-      font-size: 0.95rem;
-      color: #f8fafc;
-    }
-
-    .summary-card p {
-      margin: 0;
-      color: var(--mist);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      margin: 0 0 12px;
-      color: #f8fafc;
-    }
-
-    .section-lede {
-      margin: 0 auto 32px;
-      max-width: 720px;
-      color: var(--mist);
-      line-height: 1.6;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-
-    .feature {
-      padding: 24px;
-      border-radius: 20px;
-      background: rgba(15, 23, 42, 0.65);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
-    }
-
-    .feature h3 {
-      margin: 16px 0 8px;
-      color: #f8fafc;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--mist);
-      line-height: 1.6;
-    }
-
-    .feature svg {
-      width: 36px;
-      height: 36px;
-      color: var(--sky);
-    }
-
-    .cta {
-      text-align: center;
-      padding: 64px 24px;
-      border-radius: 32px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(79, 191, 156, 0.16));
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      box-shadow: 0 26px 80px rgba(15, 23, 42, 0.35);
-    }
-
-    footer {
-      padding: 40px 6vw 80px;
-      color: var(--steel);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      animation: reveal 0.8s ease forwards;
-      animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes reveal {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0) translateX(0);
-      }
-
-      50% {
-        transform: translateY(18px) translateX(12px);
-      }
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        color-scheme: light;
-        --ink: #0f172a;
-        --ink-2: #111827;
-        --slate: #334155;
-        --slate-2: #475569;
-        --fog: #0f172a;
-        --mist: #475569;
-        --steel: #64748b;
-        --sky: #0284c7;
-        --pink: #3aa984;
-        --glow: rgba(56, 189, 248, 0.22);
-        --glow-2: rgba(58, 169, 132, 0.16);
-        --panel: rgba(248, 250, 252, 0.9);
-        --panel-strong: rgba(248, 250, 252, 0.98);
-        --border: rgba(148, 163, 184, 0.45);
-        --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
-      }
-
-      body {
-        background:
-          radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.2), transparent 50%),
-          radial-gradient(circle at 85% 0%, rgba(58, 169, 132, 0.16), transparent 45%),
-          radial-gradient(circle at 75% 70%, rgba(56, 189, 248, 0.14), transparent 55%),
-          #f8fafc;
-        color: var(--ink-2);
-      }
-
-      .page::before {
-        background-image:
-          linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-        opacity: 0.22;
-      }
-
-      .logo,
-      h1,
-      .section-title,
-      .summary-card h3,
-      .feature h3 {
-        color: var(--ink-2);
-      }
-
-      nav {
-        color: var(--slate);
-      }
-
-      .hero p,
-      .section-lede,
-      .summary-card p,
-      .feature p,
-      footer {
-        color: var(--slate-2);
-      }
-
-      .btn.ghost {
-        background: rgba(248, 250, 252, 0.9);
-        border-color: var(--border);
-        color: var(--ink-2);
-      }
-
-      .btn:hover {
-        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
-      }
-
-      .hero-card {
-        border-color: var(--border);
-      }
-
-      .chip {
-        color: var(--ink-2);
-        background: rgba(58, 169, 132, 0.14);
-      }
-
-      .summary-card {
-        background: rgba(248, 250, 252, 0.9);
-        border-color: var(--border);
-      }
-
-      .feature {
-        background: rgba(248, 250, 252, 0.88);
-        border-color: var(--border);
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-      }
-
-      .cta {
-        border-color: var(--border);
-        box-shadow: 0 26px 80px rgba(15, 23, 42, 0.16);
-      }
-    }
-
-    @media (max-width: 960px) {
-      nav {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      header {
-        padding: 20px 6vw;
-      }
-
-      .header-actions {
-        display: flex;
-      }
-
-      main {
-        gap: 80px;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .header-actions .btn {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .reveal,
-      .orb {
-        animation: none;
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div class="page">
+  <div class="page home">
     <div class="orb one"></div>
     <div class="orb pink two"></div>
     <div class="orb three"></div>
     <header>
       <div class="logo">docco</div>
-      <nav>
-        <a href="https://app.docco.in">Features</a>
-        <a href="#cta">Access</a>
-      </nav>
       <div class="header-actions">
         <a class="btn primary"
           href="https://login.docco.in">Login /
@@ -551,8 +56,8 @@
             moment you need.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="https://app.docco.in">Request access</a>
-            <a class="btn ghost" href="#">See features</a>
+            <a class="btn primary" href="pricing.html">See pricing</a>
+            <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
           </div>
         </div>
         <div class="hero-card">
@@ -632,15 +137,28 @@
           care teams the moment they need it.
         </p>
         <div class="hero-actions" style="justify-content: center">
-          <a class="btn primary" href="https://app.docco.in">Request access</a>
-          <a class="btn ghost" href="#">Review features</a>
+          <a class="btn primary" href="pricing.html">See pricing</a>
+          <button class="btn ghost" type="button" data-modal-target="whatsapp-modal">Contact Us Via Whatsapp</button>
         </div>
       </section>
     </main>
+
+    <div class="modal" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close" data-modal-close>×</button>
+        <h3>Contact Us Via Whatsapp</h3>
+        <p>Scan QR code to contact us.</p>
+        <div class="modal-qr">
+          <img alt="WhatsApp QR code"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fwa.me%2F919226386487%3Ftext%3D%25F0%259F%2591%258B%2520Hi%21%2520I%2520am%2520interested%2520in%2520docco" />
+        </div>
+      </div>
+    </div>
     <footer>
       <div>
         <div class="logo">DOCCO</div>
         <p>AI-powered clinical case recall with natural-language search.</p>
+        <p class="footer-note">Made with 🩵 in Bengaluru</p>
       </div>
       <div class="footer-links">
         <a href="#">Support</a>
@@ -649,6 +167,57 @@
       </div>
     </footer>
   </div>
+  <script>
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const modalCloses = document.querySelectorAll('[data-modal-close]');
+    const modals = document.querySelectorAll('.modal');
+
+    const openModal = (modal) => {
+      if (!modal) {
+        return;
+      }
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = (modal) => {
+      if (!modal) {
+        return;
+      }
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const modal = document.getElementById(trigger.dataset.modalTarget);
+        openModal(modal);
+      });
+    });
+
+    modalCloses.forEach((button) => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.modal');
+        closeModal(modal);
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        modals.forEach((modal) => closeModal(modal));
+      }
+    });
+  </script>
 </body>
 
 </html>

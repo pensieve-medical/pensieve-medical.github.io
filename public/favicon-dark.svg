@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="glow-1" cx="18%" cy="12%" r="75%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-2" cx="86%" cy="8%" r="65%">
+      <stop offset="0%" stop-color="#4fbf9c" stop-opacity="0.28" />
+      <stop offset="60%" stop-color="#4fbf9c" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1120" />
+  <rect width="64" height="64" rx="14" fill="url(#glow-1)" />
+  <rect width="64" height="64" rx="14" fill="url(#glow-2)" />
+  <path d="M40.37 48.45L47.04 48.45L47.04 15.55L40.37 15.55L40.37 48.45ZM30.02 48.45L45.89 48.45L45.89 43.16L30.02 43.16Q27.03 43.16 25.45 41.52Q23.86 39.89 23.86 36.62L23.86 36.62Q23.86 33.31 25.45 31.68Q27.03 30.05 30.02 30.05L30.02 30.05L45.43 30.05L45.43 24.75L30.02 24.75Q23.86 24.75 20.41 27.79Q16.96 30.83 16.96 36.62L16.96 36.62Q16.96 42.37 20.41 45.41Q23.86 48.45 30.02 48.45L30.02 48.45Z" fill="#f8fafc" />
+</svg>

@@ -45,6 +45,8 @@
   <meta name="twitter:title" content="{{ page.twitter_title | default: page.title }}" />
   <meta name="twitter:description" content="{{ page.twitter_description | default: page.description }}" />
   <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image }}" />
+  <link rel="icon" href="{{ '/favicon-light.svg' | relative_url }}" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="{{ '/favicon-dark.svg' | relative_url }}" media="(prefers-color-scheme: dark)" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

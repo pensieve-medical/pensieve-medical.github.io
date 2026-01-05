@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:favicon": "node scripts/generate-favicon.mjs",
     "generate:qr": "bun scripts/generate-qr.mjs",
     "sync:styles": "cp styles.css public/styles.css",
     "predev": "bun run generate:qr && bun run sync:styles",
@@ -14,6 +15,7 @@
   "dependencies": {
     "astro": "^5.16.6",
     "jsdom": "^24.0.0",
+    "opentype.js": "^1.3.4",
     "qr-code-styling": "^1.6.0-rc.1"
   }
 }

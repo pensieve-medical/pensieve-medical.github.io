@@ -51,20 +51,32 @@ const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data
     document.body.style.overflow = '';
   };
 
+  const launchHiddenIframe = (url) => {
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    window.setTimeout(() => {
+      iframe.remove();
+    }, 1200);
+  };
+
   const openWhatsapp = () => {
     if (!whatsappLink) {
       return;
     }
     if (whatsappAppLink) {
-      window.location.href = whatsappAppLink;
+      launchHiddenIframe(whatsappAppLink);
       window.setTimeout(() => {
         if (!document.hidden) {
-          window.location.href = whatsappLink;
+          window.open(whatsappLink, '_blank', 'noopener');
         }
-      }, 800);
+      }, 900);
       return;
     }
-    window.location.href = whatsappLink;
+    window.open(whatsappLink, '_blank', 'noopener');
   };
 
   modalTriggers.forEach((trigger) => {

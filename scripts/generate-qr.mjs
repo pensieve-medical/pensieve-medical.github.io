@@ -13,9 +13,10 @@ qr.make();
 
 const moduleCount = qr.getModuleCount();
 const moduleSize = 5;
+const dotScale = 1.6;
 const marginModules = 4;
 const dimension = (moduleCount + marginModules * 2) * moduleSize;
-const dotRadius = moduleSize / 2;
+const dotRadius = (moduleSize / 2) * dotScale;
 
 const renderSvg = (fillColor) => {
   const parts = [];

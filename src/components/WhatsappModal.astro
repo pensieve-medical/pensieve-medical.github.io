@@ -14,10 +14,8 @@ const qrDarkSrc = '/qr/whatsapp-dark.svg';
     <h3>Contact Us Via Whatsapp</h3>
     <p>Scan QR code to contact us.</p>
     <div class="modal-qr">
-      <picture>
-        <source srcset={qrDarkSrc} media="(prefers-color-scheme: dark)" />
-        <img alt="WhatsApp QR code" src={qrLightSrc} width="220" height="220" loading="lazy" />
-      </picture>
+      <img class="qr-image qr-image-dark" alt="WhatsApp QR code" src={qrDarkSrc} width="220" height="220" loading="lazy" />
+      <img class="qr-image qr-image-light" alt="WhatsApp QR code" src={qrLightSrc} width="220" height="220" loading="lazy" />
     </div>
   </div>
 </div>
